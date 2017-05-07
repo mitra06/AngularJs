@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script type="text/javascript" src="js/angular.min.js">
+		</script>
+	</head>
+	<body>
+			<h1>AngularJS Filter</h1>
+			<p>Filter are used  for modify the data and can be clubbed in expression directive using pipe character</p>
+			<b>UpperCase Filter</b><p>Filter to uppercase in any character using pipe character<br/>
+			<b>LowerCase Filter</b><p>Filter to lowercase in any character using pipe character<br/>
+			<b>Currency Filter</b><p>Filter to uppercase in any character using pipe character<br/>
+			<b>Filter Filter</b><p>Filter to uppercase in any character using pipe character<br/>
+			<b>Orderby Filter</b><p>Filter to uppercase in any character using pipe character<br/>
+
+			<div ng-app="mainApp" ng-controller="studentController">
+			<table border="0">
+			<tr>
+				<td>Enter Your FirstName:</td>
+				<td><input type="text" ng-model="student.firstName"></td>
+			</tr>
+			<tr>
+				<td>Enter Your LastName:</td>
+				<td><input type="text" ng-model="student.lastName"></td>
+			</tr>
+			<tr>
+				<td>Enter Fees:</td>
+				<td><input type="text" ng-model="student.fees"></td>
+			</tr>
+			<tr>
+				<td>Enter Subject:</td>
+				<td><input type="text" ng-model="subjectName"></td>
+			</tr>
+			</table>
+			<br/>
+			<table border="0">
+			<tr>
+				<td>Name in UpperCase:</td><td>{{student.fullName() | uppercase }}</td>
+			</tr>
+			<tr>
+				<td>Name in LowerCase:</td><td>{{student.fullName() | lowercase }}</td>
+			</tr>
+			<tr>
+				<td>Fees:</td><td>{{student.fees | currency}}</td>
+			</tr>
+			<tr>
+				<td>Subject:</td>
+				<td>
+				<ul>
+					<li ng-repeat="subject in student.subjects | filter:subjectName | orderBy:'marks'">
+						{{subject.name + ',marks:' + subject.marks}}
+					</li>
+				</ul>
+				</td>
+			</tr>
+			</table>
+			</div>
+			<script>
+         var mainApp = angular.module("mainApp", []);
+         
+         mainApp.controller('studentController', function($scope) {
+            $scope.student = {
+               firstName: "sajan",
+               lastName: "mishra",
+               fees:500,
+               
+               subjects:[
+                  {name:'Physics',marks:70},
+                  {name:'Chemistry',marks:80},
+                  {name:'Math',marks:65}
+               ],
+               
+               fullName: function() {
+                  var studentObject;
+                  studentObject = $scope.student;
+                  return studentObject.firstName + " " + studentObject.lastName;
+               }
+            };
+         });
+      </script>
+      
+	</body>
+	</html>

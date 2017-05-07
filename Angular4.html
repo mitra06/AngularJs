@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script type="text/javascript" src="js/angular.min.js">
+		</script>
+	</head>
+	<body>
+			<h1>Angular Controller</h1>
+			<p>Angularjs application mainly rely on controller to control flow the data.The controller is define using ng-controller directives. Each controller accept $scope is a parameter which refers to application/module that controller to control</p>
+			<br/>
+
+
+			<div ng-app = "mainApp" ng-controller = "studentController">
+         Enter first name: <input type = "text" ng-model = "student.firstName"><br><br>
+         Enter last name: <input type = "text" ng-model = "student.lastName"><br>
+         <br>
+         
+         You are entering: {{student.fullName()}}
+      </div>
+      
+      <script>
+         var mainApp = angular.module("mainApp", []);
+         mainApp.controller('studentController', function($scope) {
+         $scope.student = {
+         firstName: "sajan",
+         lastName: "mishra",
+               
+         fullName: function() {
+                  var studentObject;
+                  studentObject = $scope.student;
+                  return studentObject.firstName + " " + studentObject.lastName;
+               }
+            };
+         });
+      </script>
+	</body>
+	</html>

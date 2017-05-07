@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script type="text/javascript" src="js/angular.min.js">
+		</script>
+	</head>
+	<body>
+			<h1>Angular Expression</h1>
+			<p>Expression bind application data to html it behaves like ng-bind</p><br/>
+			<b>Using Numbers</b>{{cost*quantity}} Rs<br/>
+			<b>Using Strings</b>{{student.firstname+" "+student.lastname}}!<br/>
+			<b>Using Object</b>{{student.rollno}} <br/>
+			<b>Using Array</b>{{marks[3]}} <br/>
+
+			<div ng-app="" ng-init="quantity=1; cost=20; student={firstname:'sajan',lastname:'mishra',rollno:'101'};marks = [80,90,75,73]">
+			<p>Hello {{student.firstname+" "+student.lastname}}</p><br/>
+			<p>Cost of book is {{cost*quantity}}</p><br/>
+			<p>RollNo{{student.rollno}}</p><br/>
+			<p>Marks(Math):{{marks[3]}}</p>
+			 
+			</div>

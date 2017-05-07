@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script type="text/javascript" src="js/angular.min.js">
+		</script>
+	</head>
+	<body>
+			<h1>Angular App Directives</h1>
+			<b>ng-app:</b><p>This directive start an angular js application</p><br/>
+			<b>ng-init:</b><p>This directive initialize an angular js data</p><br/>
+			<b>ng-model:</b><p>This directive bind the angular js data to html input controls</p><br/>
+			<b>ng-repeat:</b><p>This directive repeat the html element for each item in a collection</p><br/>
+			<p>For example here is the list of data</p><br>
+			<p>countries=[{locale:'en-US', name:'UnitedStete'},{locale:'en-GB',name:'UnitedKingdom'},{locale:'en-FR',name:'France'}]</p>
+			<div ng-app="" ng-init="countries=[{locale:'en-US', name:'UnitedStete'},{locale:'en-GB',name:'UnitedKingdom'},{locale:'en-FR',name:'France'}]">
+				
+				<p>Enter Your Name:<input type="text" ng-model="name"></p>
+				Hello,<span ng-bind="name"></span>
+				<p>List of country with locale</p>
+				<ol>
+					<li ng-repeat="country in countries">
+						{{
+							'Country: ' + country.name + ', Locale: ' + country.locale
+ 						}}
+					</li>
+				</ol>
+			</div>
+	</body>
+	</html>
